@@ -29,18 +29,18 @@ class LunchSchedule {
 // This naive implementation doesn't behave well across midnight.
 class WallClockInterval {
   constructor(start: string, end: string) {
-    this._startTime = start;
-    this._endTime = end;
+    this.startTime = start;
+    this.endTime = end;
   }
 
-  private _startTime: string;
+  private startTime: string;
   get start(): Date {
-    return moment(this._startTime, timeFormat).toDate();
+    return moment(this.startTime, timeFormat).toDate();
   }
 
-  private _endTime: string;
+  private endTime: string;
   get end(): Date {
-    return moment(this._endTime, timeFormat).toDate();
+    return moment(this.endTime, timeFormat).toDate();
   }
 
   inInterval = (): boolean => moment().isBetween(this.start, this.end);
@@ -129,6 +129,14 @@ const Timers = ({lunchTimes}: TimersProps) => {
           />
         ))}
     </div>
+  );
+};
+
+const VoiceLevel = ({key, grade, intervals}) => {
+  return (
+    <p>
+      {key} {grade}
+    </p>
   );
 };
 

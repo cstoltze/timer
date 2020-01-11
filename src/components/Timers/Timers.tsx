@@ -7,22 +7,6 @@ export interface TimersProps {
   lunchTimes: LunchSchedule[];
 }
 
-class LunchSchedule {
-  constructor(
-    grade: string,
-    lunchTime: WallClockInterval,
-    voiceLevelIntervals: VoiceLevelInterval[],
-  ) {
-    this.grade = grade;
-    this.lunchTime = lunchTime;
-    this.voiceLevelIntervals = voiceLevelIntervals;
-  }
-  grade: string;
-  lunchTime: WallClockInterval;
-  atLunch: () => boolean = this.lunchTime.inInterval;
-  voiceLevelIntervals: VoiceLevelInterval[];
-}
-
 // WallClockInterval represents the interval between two times
 //
 // For example 3:15 AM to 4:10 AM. This interval repreats daily.
@@ -46,6 +30,24 @@ class WallClockInterval {
   inInterval = (): boolean => moment().isBetween(this.start, this.end);
 }
 
+class LunchSchedule {
+  grade: string;
+  lunchTime?: WallClockInterval;
+  voiceLevelIntervals: VoiceLevelInterval[];
+
+  constructor(
+    grade: string,
+    lunchTime: WallClockInterval,
+    voiceLevelIntervals: VoiceLevelInterval[],
+  ) {
+    this.grade = grade;
+    this.lunchTime = lunchTime;
+    this.voiceLevelIntervals = voiceLevelIntervals;
+  }
+  atLunch: () => boolean = () =>
+    !(this.lunchTime === undefined || !this.lunchTime.inInterval());
+}
+
 class VoiceLevelInterval extends WallClockInterval {
   constructor(
     start: string,
@@ -62,7 +64,7 @@ class VoiceLevelInterval extends WallClockInterval {
 }
 
 const timeFormat = 'hh:mm a';
-const lunchTimes: LunchSchedule[] = [
+const lunchTimes = [
   new LunchSchedule(
     'Kindergarten',
     new WallClockInterval('10:55 am', '11:30 am'),
@@ -97,9 +99,14 @@ const lunchTimes: LunchSchedule[] = [
     new VoiceLevelInterval('12:05 pm', '12:25 pm', true, true),
     new VoiceLevelInterval('12:25 pm', '12:30 pm', false, false),
   ]),
+  new LunchSchedule('Test', new WallClockInterval('11:55 am', '11:30 pm'), [
+    new VoiceLevelInterval('11:55 am', '12:05 pm', false, true),
+    new VoiceLevelInterval('12:05 pm', '12:25 pm', true, true),
+    new VoiceLevelInterval('12:25 pm', '11:00 pm', false, false),
+  ]),
 ];
 
-const Timers = ({lunchTimes}: TimersProps) => {
+const Timers = () => {
   const getGradesAtLunch = (lunchTimes: LunchSchedule[]): Set<string> =>
     new Set(lunchTimes.filter(t => t.atLunch()).map(t => t.grade));
 
@@ -132,11 +139,28 @@ const Timers = ({lunchTimes}: TimersProps) => {
   );
 };
 
-const VoiceLevel = ({key, grade, intervals}) => {
+interface VoiceLevelProps {
+  grade: string;
+  intervals: VoiceLevelInterval[];
+}
+
+const VoiceLevel = ({grade, intervals}: VoiceLevelProps) => {
+  const activeInterval = intervals.find(interval => interval.inInterval());
+
+  if (!activeInterval) return <p>No activeInterval found for {grade}</p>;
+
   return (
-    <p>
-      {key} {grade}
-    </p>
+    <div>
+      <p>{grade}</p>
+      <Countdown
+        date={activeInterval.end}
+        renderer={({minutes, seconds}) => (
+          <p>
+            {minutes}:{seconds.toString().padStart(2, '0')}
+          </p>
+        )}
+      />
+    </div>
   );
 };
 

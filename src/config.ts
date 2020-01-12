@@ -9,7 +9,7 @@ export const lunchTimes = [
     ],
   },
   {
-    grade: 'First',
+    grade: 'First Grade',
     lunchTime: {start: '11:35 am', end: '12:05 pm'},
     intervals: [
       {start: '11:35 am', end: '11:45 am', canTalk: false, showTimer: true},
@@ -18,7 +18,7 @@ export const lunchTimes = [
     ],
   },
   {
-    grade: 'Second',
+    grade: 'Second Grade',
     lunchTime: {start: '12:35 pm', end: '01:05 pm'},
     intervals: [
       {start: '12:35 pm', end: '12:45 pm', canTalk: false, showTimer: true},
@@ -27,7 +27,7 @@ export const lunchTimes = [
     ],
   },
   {
-    grade: 'Third',
+    grade: 'Third Grade',
     lunchTime: {start: '11:25 am', end: '11:55 am'},
     intervals: [
       {start: '11:25 am', end: '11:35 am', canTalk: false, showTimer: true},
@@ -36,7 +36,7 @@ export const lunchTimes = [
     ],
   },
   {
-    grade: 'Fourth',
+    grade: 'Fourth Grade',
     lunchTime: {start: '12:20 pm', end: '12:50 pm'},
     intervals: [
       {start: '12:20 pm', end: '12:30 pm', canTalk: false, showTimer: true},
@@ -45,7 +45,7 @@ export const lunchTimes = [
     ],
   },
   {
-    grade: 'Fifth',
+    grade: 'Fifth Grade',
     lunchTime: {start: '11:55 am', end: '12:30 pm'},
     intervals: [
       {start: '11:55 am', end: '12:05 pm', canTalk: false, showTimer: true},

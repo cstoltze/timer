@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
 import Timers from './components/Timers';
-import moment from 'moment';
+import {lunchTimes} from './config';
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <Timers />
+      <h1>Northridge Lunch Schedule</h1>
+      <Timers lunchTimes={lunchTimes}/>
     </div>
   );
 };

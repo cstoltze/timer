@@ -1,4 +1,4 @@
-const lunchTimes = [
+export const lunchTimes = [
   {
     grade: 'Kindergarten',
     lunchTime: {start: '10:55 am', end: '11:30 am'},

@@ -2,6 +2,13 @@ import React, {useEffect, useState} from 'react';
 import {isEqual} from 'lodash';
 import {LunchSchedule, LunchScheduleInfo} from "../../customTypes/Intervals"
 import VoiceLevel from "../VoiceLevel"
+import styled from 'styled-components'
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+`
 
 export interface TimersProps {
   lunchTimes: LunchScheduleInfo[];
@@ -26,17 +33,17 @@ const Timers = ({lunchTimes}: TimersProps) => {
   });
 
   return (
-    <div>
-      {lunchTimes
-        .filter(lunchTime => gradesAtLunch.has(lunchTime.grade))
-        .map(t => (
-          <VoiceLevel
-            key={t.grade}
-            grade={t.grade}
-            intervals={t.intervals}
-          />
-        ))}
-    </div>
+    <Wrapper>
+    {lunchTimes
+      .filter(lunchTime => gradesAtLunch.has(lunchTime.grade))
+      .map(t => (
+        <VoiceLevel
+        key={t.grade}
+        grade={t.grade}
+        intervals={t.intervals}
+      />
+      ))}
+    </Wrapper>
   );
 };
 

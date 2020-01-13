@@ -2,12 +2,33 @@ import React, {useEffect, useState} from 'react';
 import Countdown from "react-countdown";
 import {VoiceLevelInterval, VoiceLevelIntervalInfo} from "../../customTypes/Intervals"
 import {isEqual} from 'lodash'
+import styled from 'styled-components'
+
+interface WrapperProps {
+  canTalk: boolean;
+}
+
+const Wrapper = styled.div<WrapperProps>`
+  background-color:  ${props => props.canTalk ? " #99ff99" : "#ffb3b3"};
+  padding: 3em;
+`
+
+const Header = styled.h1`
+  font-size: 100px;
+  margin: 1em;
+  padding: 0;
+`
+
+const Clock = styled.p`
+  font-size: 100px;
+  margin: 1em;
+  padding: 0;
+`
 
 interface VoiceLevelProps {
   grade: string;
   intervals: VoiceLevelIntervalInfo[];
 }
-
 
 const VoiceLevel = ({ grade, intervals }: VoiceLevelProps) => {
 
@@ -23,22 +44,21 @@ const VoiceLevel = ({ grade, intervals }: VoiceLevelProps) => {
     return () => clearInterval(timerID);
   });
 
-  if (!activeInterval) return <p>No active interval found for {grade}</p>;
+  if (!activeInterval) return null;
   return (
-    <div>
-      <h2>{grade}</h2>
-      {activeInterval && <p>{activeInterval.canTalk.toString()}</p>}
+    <Wrapper canTalk={activeInterval.canTalk} >
+      <Header>{grade}</Header>
       {activeInterval.showTimer && (
         <Countdown
           date={activeInterval.end}
           renderer={({ minutes, seconds }) => (
-            <h3>
+            <Clock>
             {minutes}:{seconds.toString().padStart(2, "0")}
-            </h3>
+            </Clock>
           )}
-        />
+          />
       )}
-    </div>
+    </Wrapper>
   );
 };
 

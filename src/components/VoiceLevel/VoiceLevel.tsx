@@ -1,11 +1,11 @@
+import { isEqual } from "lodash";
 import React, { useEffect, useState } from "react";
 import Countdown from "react-countdown";
+import styled from "styled-components";
 import {
   VoiceLevelInterval,
   VoiceLevelIntervalInfo
 } from "../../customTypes/Intervals";
-import { isEqual } from "lodash";
-import styled from "styled-components";
 
 interface WrapperProps {
   canTalk: boolean;
@@ -17,7 +17,7 @@ const Wrapper = styled.div<WrapperProps>`
 `;
 
 const Header = styled.h1`
-  font-size: 100px;
+  font-size: 80px;
   margin: 1em;
   padding: 0;
 `;

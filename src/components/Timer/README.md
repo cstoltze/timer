@@ -1,6 +1,6 @@
 Timer component example:
 
 ```jsx
-import moment from 'moment';
+import moment from "moment";
 <Timer expiration={moment()} />;
 ```

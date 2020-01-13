@@ -1,1 +1,1 @@
-export {default} from './VoiceLevel';
+export { default } from "./VoiceLevel";

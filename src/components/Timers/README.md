@@ -1,5 +1,5 @@
 Timers component example:
 
 ```jsx
-<Timers lunchTimes={[]} />;
+<Timers lunchTimes={[]} />
 ```

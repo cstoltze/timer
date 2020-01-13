@@ -54,9 +54,7 @@ export class LunchSchedule {
   lunchTime: WallClockInterval;
   voiceLevelIntervals: VoiceLevelIntervalInfo[];
 
-  constructor(
-    info: LunchScheduleInfo
-  ) {
+  constructor(info: LunchScheduleInfo) {
     this.grade = info.grade;
     this.lunchTime = new WallClockInterval(info.lunchTime);
     this.voiceLevelIntervals = info.intervals;

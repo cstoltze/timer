@@ -1,1 +1,1 @@
-export {default} from './Timers';
+export { default } from "./Timers";

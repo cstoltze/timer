@@ -27,7 +27,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "yarn build",
-    "deploy": "gh-pages -d build"
+    "deploy": "yarn predeploy && gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -48,6 +48,8 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/dom": "^6.12.2",
+    "eslint": "^6.8.0",
     "eslint-plugin-testing-library": "^2.2.3",
     "gh-pages": "^2.2.0",
     "react-docgen-typescript": "^1.16.2",

@@ -52,7 +52,7 @@ interface WrapperProps {
 }
 
 const Wrapper = styled.div<WrapperProps>`
-  background-color: ${props => (props.canTalk ? " #99ff99" : "#ffb3b3")};
+  background-color: ${props => (props.canTalk ? "#99ff99" : "#ffb3b3")};
   padding: 3em;
 `;
 
@@ -67,6 +67,7 @@ const Clock = styled.p`
   margin: 1em;
   padding: 0;
 `;
+
 // helpers
 
 const getActiveInterval = (intervals: VoiceLevelIntervalInfo[]) =>

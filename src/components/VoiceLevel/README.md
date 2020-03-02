@@ -1,3 +1,6 @@
+The VoiceLevel component informs students if they can talk, and optionally how
+much time is left until their talking status changes.
+
 VoiceLevel component example:
 
 ```jsx

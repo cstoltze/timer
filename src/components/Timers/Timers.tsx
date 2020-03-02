@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
 import { isEqual } from "lodash";
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 import { LunchSchedule, LunchScheduleInfo } from "../../customTypes/Intervals";
 import VoiceLevel from "../VoiceLevel";
-import styled from "styled-components";
 
 const Wrapper = styled.div`
-  display: flex;
+  display: grid;
   flex-direction: row;
   justify-content: space-evenly;
 `;

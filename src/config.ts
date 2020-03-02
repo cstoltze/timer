@@ -19,11 +19,11 @@ export const lunchTimes = [
   },
   {
     grade: "Second Grade",
-    lunchTime: { start: "12:35 pm", end: "01:05 pm" },
+    lunchTime: { start: "12:45 pm", end: "01:15 pm" },
     intervals: [
-      { start: "12:35 pm", end: "12:45 pm", canTalk: false, showTimer: true },
-      { start: "12:45 pm", end: "12:58 pm", canTalk: true, showTimer: true },
-      { start: "12:58 pm", end: "01:05 pm", canTalk: false, showTimer: false }
+      { start: "12:45 pm", end: "12:55 pm", canTalk: false, showTimer: true },
+      { start: "12:55 pm", end: "01:08 pm", canTalk: true, showTimer: true },
+      { start: "01:08 pm", end: "01:15 pm", canTalk: false, showTimer: false }
     ]
   },
   {

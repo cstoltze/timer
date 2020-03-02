@@ -1,6 +1,6 @@
 import moment from "moment";
 
-// For example 3:15 AM to 4:10 AM. This interval repreats daily.
+// For example 3:15 AM to 4:10 AM. This interval repeats daily.
 // This naive implementation doesn't behave well across midnight.
 export class WallClockInterval {
   static timeFormat = "hh:mm a";

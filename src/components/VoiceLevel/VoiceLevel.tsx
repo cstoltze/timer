@@ -7,27 +7,6 @@ import {
   VoiceLevelIntervalInfo
 } from "../../customTypes/Intervals";
 
-interface WrapperProps {
-  canTalk: boolean;
-}
-
-const Wrapper = styled.div<WrapperProps>`
-  background-color: ${props => (props.canTalk ? " #99ff99" : "#ffb3b3")};
-  padding: 3em;
-`;
-
-const Header = styled.h1`
-  font-size: 80px;
-  margin: 1em;
-  padding: 0;
-`;
-
-const Clock = styled.p`
-  font-size: 100px;
-  margin: 1em;
-  padding: 0;
-`;
-
 interface VoiceLevelProps {
   grade: string;
   intervals: VoiceLevelIntervalInfo[];
@@ -68,6 +47,26 @@ const VoiceLevel = ({ grade, intervals }: VoiceLevelProps) => {
 
 export default VoiceLevel;
 
+interface WrapperProps {
+  canTalk: boolean;
+}
+
+const Wrapper = styled.div<WrapperProps>`
+  background-color: ${props => (props.canTalk ? " #99ff99" : "#ffb3b3")};
+  padding: 3em;
+`;
+
+const Header = styled.h1`
+  font-size: 80px;
+  margin: 1em;
+  padding: 0;
+`;
+
+const Clock = styled.p`
+  font-size: 100px;
+  margin: 1em;
+  padding: 0;
+`;
 // helpers
 
 const getActiveInterval = (intervals: VoiceLevelIntervalInfo[]) =>

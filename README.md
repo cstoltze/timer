@@ -1,3 +1,7 @@
+A webapp that keeps track of when students should and should not be talking during lunch.
+
+----
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
